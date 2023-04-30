@@ -115,13 +115,9 @@ public class CommandHandler {
 		if (!this.app.noSaving) {
 			try {
 				fileDump = new PrintWriter(new FileOutputStream(
-						new File(String.format("%s/links.html", outputFolderPath))));
-				fileDump.println("<!Doctype HTML>");
-				fileDump.println("<html>");
-				fileDump.println("\t<body>");
-				fileDump.println("\t\t<span>");
+						new File(String.format("%s/links.txt", outputFolderPath))));
 			} catch (Exception ex) {
-				ImgurScraper.logger.error("Unable to create the HTML file!"
+				ImgurScraper.logger.error("Unable to create the TXT file!"
 						+ " Do we not have write permissions?");
 				ex.printStackTrace();
 			}	
@@ -150,9 +146,8 @@ public class CommandHandler {
 				// Write to file
 				if (fileDump != null) {
 					fileDump.println(String.format(
-							"\t\t\t(%d) <a href=\"%s\" target=_blank>%s</a>:<br>", i, link, link));
-					fileDump.println(String.format(
-							"\t\t\t<img style=\"color: red;\" src=\"%s\" alt=\"Link %d doesn\'t exist!\"/><br>", 
+							"%s", link));
+					fileDump.println(String.format( 
 							linkImageURL, i));
 				}
 			}
@@ -177,9 +172,9 @@ public class CommandHandler {
 		}
 		
 		if (fileDump != null) {
-			fileDump.println("\t\t</span>");
-			fileDump.println("\t</body>");
-			fileDump.println("</html>");
+			fileDump.println("");
+			fileDump.println("");
+			fileDump.println("");
 			fileDump.flush();
 			fileDump.close();
 		}
