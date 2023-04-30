@@ -191,6 +191,7 @@ public class ImgurScraper implements Runnable {
 	
 	public void printStartupMessage() {
 		logger.info("Welcome to ImgurScraper!");
+		logger.info("PlainText mod done by DexrnZacAttack");
 		logger.info("Type \"help\" for more information");
 		logger.warn("WARNING: The photos you generate may contain pornography"
 				+ " or other inappropriate imagery. Use with caution");
